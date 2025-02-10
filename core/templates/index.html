@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+</head>
+<body>
+    <CENter>
+        
+    <h1>Index</h1>
+    <img src="{% static 'images/logo.png'%}" alt="">
+    <h2>{{ title }}</h2>
+    <p>{{ heading }}</p>
+
+    <!-- Tabela corrigida -->
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Stock</th>
+            </tr>
+        </thead>
+
+        <!-- Loop corrigido -->
+        {% for product in products %}
+            <!-- Uma linha por produto -->
+            <tr> 
+              
+                <td><a href="{% url 'product' product.id %}"</a>{{ product.name }}</td> 
+               
+                <td>{{ product.price }}</td> 
+               
+                <td>{{ product.stock }}</td> 
+            </tr>
+
+        {% endfor %}   
+        
+        </tbody><!-- Adicionei fechamento do tbody aqui -->  
+        
+    </table>
+   <button onclick='teste();'>Economy</button>
+</CENter>
+   <script type="text/javascript"src="{% static 'js/script.js' %}"></script>
+</body>
+
+<!-- Fechamento do html completo -->
+<html/>
